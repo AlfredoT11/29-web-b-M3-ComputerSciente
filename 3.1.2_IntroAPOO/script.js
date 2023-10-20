@@ -47,3 +47,7 @@ personaA.saludar();
 console.log(personaA.horasSuenio);
 personaA.dormir(8);
 console.log(personaA.horasSuenio);
+
+const personaB = new Persona('Juan', 23, 'Masculino', 'Colombiana');
+
+personaA.platicar(personaB);
