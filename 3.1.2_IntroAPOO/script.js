@@ -76,6 +76,8 @@ const personaB = new Persona('Juan', 23, 'Masculino', 'Colombiana');
 personaA.platicar(personaB);
 
 console.log(`La edad de ${personaA.nombre} es ${personaA.getEdad()}`);
+//personaA.edad = 25 <- No se puede hacer porque el atributo es privado
+// se tiene que utilizar un método set.
 personaA.setEdad(25);
 console.log(`La edad de ${personaA.nombre} es ${personaA.getEdad()}`);
 
