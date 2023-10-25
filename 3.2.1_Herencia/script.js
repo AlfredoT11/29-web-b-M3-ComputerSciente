@@ -1,9 +1,3 @@
-const saludos = {
-    'Doctor': 'Soy un Doctor...',
-    'Artista': 'Soy un Artista...',
-
-}
-
 class Persona{
     constructor(nombre, genero, edad, colorDePiel){
         this.colorDePiel = colorDePiel;
@@ -16,7 +10,7 @@ class Persona{
         console.log(`Hola, soy ${this.nombre} y tengo ${this.edad} años.`);
     }
 
-    platicar(persona){
+    platicarSinPolimorfismo(persona){
         this.saludar();
 
         if(persona instanceof Doctor){
@@ -26,6 +20,11 @@ class Persona{
         }else{
             persona.saludar();
         } 
+    }
+
+    platicarConPolimorfismo(persona){
+        this.saludar();
+        persona.saludar();
     }
 }
 
@@ -37,6 +36,11 @@ class Doctor extends Persona{
 
     inyectar(persona){
         console.log(`Estoy inyectando a ${persona.nombre}`);
+    }
+
+    // Sobreescritura del método saludar() de la clase padre.
+    saludar(){
+        console.log(`Hola, soy ${this.nombre} y mi especialidad es: ${this.especialidad}`);
     }
 
     saludarComoDoctor(){
@@ -53,6 +57,11 @@ class Artista extends Persona{
     crearUnaObra(){
         console.log(`Estoy creando mi obra número ${this.numeroDeObras+1}`);
         this.numeroDeObras++;
+    }
+
+    // Sobreescritura del método saludar() de la clase padre.
+    saludar(){
+        console.log(`Hola, soy ${this.nombre} y tengo : ${this.numeroDeObras} obras`);
     }
 
     saludarComoArtista(){
@@ -72,5 +81,15 @@ doctor1.inyectar(persona1);
 //persona1.inyectar(doctor1); <- Esto regresa un error ya que la clase Persona no tiene el método inyectar()
 
 console.log('Personas platicando: ');
-persona1.platicar(doctor1);
-persona1.platicar(artista1);
+persona1.platicarConPolimorfismo(doctor1);
+persona1.platicarConPolimorfismo(artista1);
+
+//Ejercicio de clase
+/*
+Crear una clase llamada "Notificador" que envíe mensajes a las Personas (nombre, edad, profesión).
+
+Crear una clase llamada "Mensaje" que tenga un método enviar() que imprima en pantalla un mensaje a enviar.
+
+Crear al menos 3 clases hijas de "Mensaje" que sean diferentes medios de comunicación (email, mensaje de texto, sms, WA, etc.) 
+y que sobreescriban el método enviar para mandar mensajes.
+*/
