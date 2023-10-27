@@ -104,3 +104,55 @@ while(recorridoPueblos.mostrarTope() != null){
     console.log(recorridoPueblos.eliminar());
 }
 
+
+class Cola{
+    
+    constructor(){
+        this.datos = [];
+    }
+
+    // Enqueue
+    encolar(valor){
+        this.datos.push(valor);
+    }
+
+    // Dequeue
+    desencolar(){
+        if(this.datos.length == 0){
+            return null;
+        }
+        return this.datos.shift();
+    }
+
+    // Front
+    mostrarFrente(){
+        if(this.datos.length == 0){
+            return null;
+        }
+        return this.datos[0];
+    }
+
+    // Back
+    mostrarFinal(){
+        if(this.datos.length == 0){
+            return null;
+        }
+        return this.datos[this.datos.length - 1];
+    }
+}
+
+console.log('Ejemplo de Cola');
+
+const cola1 = new Cola();
+
+cola1.encolar(10);
+cola1.encolar(9);
+cola1.encolar(8);
+
+console.log(`El frente es: ${cola1.mostrarFrente()}. El final es: ${cola1.mostrarFinal()}`);
+cola1.desencolar();
+console.log(`El frente es: ${cola1.mostrarFrente()}. El final es: ${cola1.mostrarFinal()}`);
+cola1.desencolar();
+console.log(`El frente es: ${cola1.mostrarFrente()}. El final es: ${cola1.mostrarFinal()}`);
+cola1.desencolar();
+console.log(`El frente es: ${cola1.mostrarFrente()}. El final es: ${cola1.mostrarFinal()}`);
