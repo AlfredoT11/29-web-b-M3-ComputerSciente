@@ -69,3 +69,38 @@ pila1.eliminar();
 console.log(pila1.mostrarTope());
 pila1.eliminar();
 console.log(pila1.mostrarTope());
+
+//Ejercicio 3 de Pilas
+/*
+Un conductor maneja de un pueblo origen a un pueblo destino, pasando por varios pueblos. Una vez en el pueblo destino, el conductor debe regresar a casa por el mismo camino. Muestre el camino recorrido tanto de ida como de vuelta.
+
+Recorrido: Pueblo Origen → pueblo 1 → pueblo 2 → destino
+Regreso: destino → pueblo 2’ → pueblo 1 → Pueblo Origen
+
+*/
+
+const puebloA = 'Pueblo A'; //4
+const puebloB = 'Pueblo B'; //3
+const puebloC = 'Pueblo C'; //1
+const puebloD = 'Pueblo D'; //2
+const puebloE = 'Pueblo E'; //5
+
+const recorridoPueblos = new Pila();
+
+console.log(`Camino de ida`);
+recorridoPueblos.agregar(puebloC);
+console.log(recorridoPueblos.mostrarTope());
+recorridoPueblos.agregar(puebloD);
+console.log(recorridoPueblos.mostrarTope());
+recorridoPueblos.agregar(puebloB);
+console.log(recorridoPueblos.mostrarTope());
+recorridoPueblos.agregar(puebloA);
+console.log(recorridoPueblos.mostrarTope());
+recorridoPueblos.agregar(puebloE);
+console.log(recorridoPueblos.mostrarTope());
+
+console.log(`Camino de regreso`);
+while(recorridoPueblos.mostrarTope() != null){
+    console.log(recorridoPueblos.eliminar());
+}
+
