@@ -112,6 +112,7 @@ class ArbolBinario{
 
     }
 
+    // Tarea: Modificar este método para que funcione como debería.
     postorden(){
         console.log('Postorden:');
 
